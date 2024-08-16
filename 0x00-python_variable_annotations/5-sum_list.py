@@ -4,8 +4,9 @@
     task 5
 """
 
+from typing import List
 
-def sum_list(input_list: list[float]) -> float:
+def sum_list(input_list: List[float]) -> float:
     """
     """
 
