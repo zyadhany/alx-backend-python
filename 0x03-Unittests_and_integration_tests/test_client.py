@@ -41,7 +41,7 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_json.return_value = payload
 
         with patch('client.GithubOrgClient._public_repos_url') as mockpc:
-            mockpc.return_value = "hello"
+            mockpc.return_value = "hey there!"
             client = GithubOrgClient("google")
             res = client.public_repos()
             self.assertEqual(res, ["google", "abc"])
