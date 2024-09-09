@@ -40,13 +40,13 @@ class TestGithubOrgClient(unittest.TestCase):
         payload = [{"name": "google"}, {"name": "abc"}]
         mock_json.return_value = payload
 
-        with patch('client.GithubOrgClient._public_repos_url') as mockpc:
-            mockpc.return_value = "hey there!"
+        with patch('client.GithubOrgClient._public_repos_url') as mock_pub:
+            mock_pub.return_value = "hello"
             client = GithubOrgClient("google")
             res = client.public_repos()
             self.assertEqual(res, ["google", "abc"])
             mock_json.called_with_once()
-            mockpc.called_with_once()
+            mock_pub.called_with_once()
 
     @parameterized.expand([
         ({"license": {"key": "my_license"}}, "my_license", True),
