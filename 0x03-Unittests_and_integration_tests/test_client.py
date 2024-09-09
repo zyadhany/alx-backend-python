@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-    task 0
+Unittests for client module
 """
 
 import unittest
@@ -63,10 +63,10 @@ class TestGithubOrgClient(unittest.TestCase):
     TEST_PAYLOAD
 )
 class TestIntegrationGithubOrgClient(unittest.TestCase):
-    """ """
+    """ TestIntegrationGithubOrgClient """
     @classmethod
     def setUpClass(cls):
-        """ """
+        """ setUpClass """
         config = {"return_value.json.side_effect": [
             cls.org_payload, cls.repos_payload,
             cls.org_payload, cls.repos_payload
@@ -76,7 +76,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         cls.mock = cls.get_patcher.start()
 
     def test_public_repo(self):
-        """ """
+        """ test_public_repo """
         test_class = GithubOrgClient('Google')
 
         self.assertEqual(test_class.org, self.org_payload)
@@ -86,7 +86,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         self.mock.assert_called()
 
     def test_public_repos_with_license(self):
-        """  """
+        """ test_public_repos_with_license """
         test_class = GithubOrgClient("google")
 
         self.assertEqual(test_class.public_repos(), self.expected_repos)
@@ -97,7 +97,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        """ """
+        """ tearDownClass """
         cls.get_patcher.stop()
 
 
