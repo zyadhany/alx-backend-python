@@ -100,5 +100,6 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         """ """
         cls.get_patcher.stop()
 
+
 if __name__ == '__main__':
     unittest.main()
